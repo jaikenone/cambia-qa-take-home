@@ -1,0 +1,57 @@
+Gherkin
+1.  Feature: Parse file
+        Application needs to read input.csv file and sort it's contents descending and output 
+        results.
+
+    Scenario: Read empty file
+        Given empty file
+        When Script executes
+        Then No output file is produced
+
+    Scenario: Read single item file
+        Given file with single item
+        When Script executes
+        Then output file is produced containing single item
+
+    Scenario: Read multiline file
+        Given file with multiline
+        When Script executes
+        Then output file is produced with each line sorted
+
+    Scenario: Read malformed file
+        Given file that is malformed
+        When Script executes
+        Then output file is or errors accordingly
+
+        Examples:
+            this, that, the other thing
+            * are leading blanks okay? what is the expected output.
+            
+            this,,the other thing
+            * is blank items okay?
+
+2. 
+
+Tools
+1. Version control is an integral part of any development life cycle. The allow you to colabrate 
+with accross the team and rollback when needed. How would you ever live without them. I've used 
+many different version control systems, and merging always problematic with them all.
+
+2. Pro, Docker allow you to isolate the envronment, insuring that dev, test and live are basically 
+running in the same platform. Con, there's extra work in maintaining the scripts.
+
+3. Depending on where that task run and how performat it must. How well the language is supported 
+by developers. I've become quite familar with Python and it plays well in the Docker environment. 
+
+Test Methodology
+1. QA involvement is fundemental to any programming project. They should be involved from the 
+begining to the end. It's nice and works best when the QA staff is embedded with the development 
+team.
+
+2. QA should be embedded with the development team. They should attend the grooming meetings, 
+review tickets/tasks, make sure that acceptance criteria is clear and write test cases.
+
+3. Automated testing is valuable when the task are receptive. Manual testing is useful when the 
+paths of the steps don't always have a predictable path, or when the process happen out of band.
+
+4. It's important to test new code pathways including pathways that lead into the new code and out.

@@ -1,0 +1,41 @@
+#!/opt/local/bin/python3
+from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
+
+if __name__ == '__main__':
+    parser = ArgumentParser(
+        formatter_class=ArgumentDefaultsHelpFormatter,
+        description='Sort file decending',
+    )    
+    parser.add_argument(
+        '-i',
+        '--input-file',
+        default='input.csv',
+        help='The name of the file to sort',
+        type=str,
+        )
+    parser.add_argument(
+        '-o',
+        '--output-file',
+        default='output.csv',
+        help='The name of the sorted file',
+        type=str,
+        )
+
+    args = parser.parse_args()
+
+    print('start sort-file...')
+
+    with open(args.input_file, 'r') as ifp:
+        with open(args.output_file, 'w') as ofp:
+            for line in ifp:
+                line = line.rstrip('\r\n')
+                print(line)
+                l = line.split(',')
+                l.sort(reverse=True)
+                ofp.write(','.join(l) + '\n')
+
+    print('done.')
+
+
+
+
